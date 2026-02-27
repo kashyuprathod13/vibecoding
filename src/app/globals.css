@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-inter);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+:root {
+  --background: #f8fafc;
+  /* Light slick gray/white */
+  --foreground: #0f172a;
+  /* Slate 900 */
+}
+
+.dark {
+  --background: #121212;
+  /* Current dark theme bg */
+  --foreground: #ffffff;
+  /* Current text white */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
