@@ -1,6 +1,6 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
-import About from "@/components/About";
+import HomeAbout from "@/components/HomeAbout";
 import Projects from "@/components/Projects";
 import Partners from "@/components/Partners";
 import Contact from "@/components/Contact";
@@ -14,9 +14,9 @@ export default function Home() {
         </div>
         <Overlay />
       </div>
-      <About hidePhoto={true} />
+      <HomeAbout />
       <Partners />
-      <Projects />
+      <Projects limit={3} />
       <Contact />
     </main>
   );

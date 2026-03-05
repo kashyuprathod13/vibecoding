@@ -47,7 +47,7 @@ export default function Partners() {
                     <h3 className="text-sm md:text-base font-semibold tracking-[0.3em] uppercase mb-4 text-black/50 dark:text-white/50">
                         Partners & Platforms
                     </h3>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-6 leading-tight text-black/50 dark:text-white/50">
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] mb-6 text-black/50 dark:text-white/50">
                         Trusted by <span className="text-black dark:text-white">Industry Leaders.</span><br className="hidden md:block" /> Powered by <span className="text-black dark:text-white">Modern Tools.</span>
                     </h2>
                     <p className="text-lg md:text-xl text-black/60 dark:text-white/60 font-light max-w-2xl mx-auto">
@@ -86,14 +86,14 @@ export default function Partners() {
                     className="w-full"
                 >
                     <p className="text-xs tracking-widest text-black/40 dark:text-white/40 uppercase mb-8 border-b border-black/10 dark:border-white/10 pb-4 inline-block">Core Tools</p>
-                    <div className="flex flex-wrap justify-center gap-6 md:gap-12 items-center">
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-4 items-center">
                         {TOOLS.map((tool) => (
                             <motion.div
                                 key={tool}
                                 variants={itemVariants}
                                 className="flex items-center justify-center grayscale hover:grayscale-0 opacity-40 hover:opacity-100 transition-all duration-300"
                             >
-                                <span className="text-lg md:text-xl font-medium tracking-tight bg-black/5 dark:bg-white/5 px-6 py-3 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/20 transition-colors">
+                                <span className="text-sm md:text-base font-medium tracking-tight bg-black/5 dark:bg-white/5 px-6 py-3 rounded-full border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/20 transition-colors">
                                     {tool}
                                 </span>
                             </motion.div>

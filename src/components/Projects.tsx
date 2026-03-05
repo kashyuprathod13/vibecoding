@@ -2,35 +2,70 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { GlareCard } from "@/components/ui/glare-card";
 
 const PROJECTS = [
     {
-        title: "Work 1",
-        description: "We build trust",
-        category: "Website Presentation",
-        year: "2025",
-        image: "/projects/work_1.png"
+        title: "Care For You | Capstone Project",
+        category: "Healthcare",
+        year: "2024",
+        image: "/projects/Care for you.png"
     },
     {
-        title: "Work 2",
-        description: "Only The Best is Good Enough!",
-        category: "Website Presentation",
-        year: "2025",
-        image: "/projects/work_2.png"
+        title: "Bookify | Concept",
+        category: "Entertainment",
+        year: "2019",
+        image: "/projects/Bookify.png"
     },
     {
-        title: "Work 3",
-        description: "Residential, commercial and industrial construction",
-        category: "Website Presentation",
-        year: "2025",
-        image: "/projects/work_3.png"
+        title: "Luxe Air | Concept",
+        category: "High-End Lifestyle",
+        year: "2019",
+        image: "/projects/Luxeair.png"
+    },
+    {
+        title: "Classmate Spellbee Game App | Client",
+        category: "Education",
+        year: "2014",
+        image: "/projects/Spell Bee.png"
+    },
+    {
+        title: "Cadbury Game App | Client",
+        category: "FMCG",
+        year: "2014",
+        image: "/projects/Cadbury.png"
+    },
+    {
+        title: "Chakravyuh Game App | Concept",
+        category: "Gaming",
+        year: "2019",
+        image: "/projects/Chakravyuh.png"
+    },
+    {
+        title: "Swipe App Cobrand Card | Concept",
+        category: "Financial Services",
+        year: "2018",
+        image: "/projects/Swipe App.png"
+    },
+    {
+        title: "PMO App | Contest",
+        category: "Government",
+        year: "2015",
+        image: "/projects/PMO App.png"
     }
 ];
 
-export default function Projects() {
+interface ProjectsProps {
+    limit?: number;
+    hideSeeAll?: boolean;
+}
+
+export default function Projects({ limit, hideSeeAll }: ProjectsProps = {}) {
+    const displayedProjects = limit ? PROJECTS.slice(0, limit) : PROJECTS;
     return (
         <section id="work" className="min-h-screen bg-background text-foreground py-24 px-6 md:px-12 relative z-10 overflow-hidden transition-colors duration-300">
-            <div className="max-w-[1400px] mx-auto">
+            <div className="max-w-[1200px] mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -43,62 +78,71 @@ export default function Projects() {
                     </h2>
                 </motion.div>
 
-                {/* Responsive container for the cards */}
-                <div className="flex flex-col md:flex-row justify-center items-center md:items-stretch gap-6 md:gap-8 pb-12 w-full mx-auto">
-                    {PROJECTS.map((project, idx) => (
+                <div className="flex flex-col md:flex-row flex-wrap justify-center items-stretch gap-5 w-full">
+                    {displayedProjects.map((project, idx) => (
                         <motion.div
                             key={project.title}
-                            initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
-                            className="group relative rounded-[2rem] w-[90vw] sm:w-full max-w-[500px] md:w-[32%] h-[450px] md:h-[550px] overflow-hidden bg-[#0a0a0a] border border-black/5 dark:border-white/5 cursor-pointer mx-auto md:mx-0 shadow-lg"
+                            transition={{ duration: 0.6, delay: idx * 0.12, ease: "easeOut" }}
+                            className="w-full md:w-[32%] h-[360px] md:h-[440px] cursor-pointer"
                         >
-                            {/* The Project Image */}
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out opacity-60 group-hover:opacity-80"
-                            />
+                            <GlareCard className="relative w-full h-full">
+                                {/* Project image — full cover */}
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    quality={100}
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    className="object-cover object-center opacity-90"
+                                />
 
-                            {/* Heavy dark gradient overlay on the left mimicking the reference */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent w-[90%]" />
+                                {/* Bottom dark gradient */}
+                                <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0d0d0d] to-transparent z-10" />
 
-                            {/* Content Container */}
-                            <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                                {/* Top: Title and Subtitle */}
-                                <div className="max-w-[70%] z-10">
-                                    <h3 className="text-2xl font-bold tracking-tight mb-3 whitespace-pre-line leading-snug text-white">
+                                {/* Content layer */}
+                                <div className="absolute inset-0 p-8 flex flex-col justify-between z-20">
+                                    {/* Top: Title */}
+                                    <h3 className="text-base font-medium tracking-wide text-white leading-snug max-w-[85%]">
                                         {project.title}
                                     </h3>
-                                    <p className="text-white/70 text-sm leading-relaxed font-light">
-                                        {project.description}
-                                    </p>
+
+                                    {/* Bottom: Year */}
+                                    <div className="text-white/60 text-sm font-medium tracking-[0.2em]">
+                                        {project.year}
+                                    </div>
                                 </div>
 
-                                {/* Bottom Left: Year */}
-                                <div className="text-white/50 text-sm font-medium tracking-widest pl-1 z-10">
-                                    {project.year}
+                                {/* Right side: vertical category + plus */}
+                                <div className="absolute right-6 top-8 bottom-8 flex flex-col justify-between items-center z-20 pointer-events-none">
+                                    <span
+                                        className="text-white/50 text-[10px] font-medium tracking-[0.22em] uppercase whitespace-nowrap"
+                                        style={{ writingMode: "vertical-rl", textOrientation: "mixed", transform: "rotate(180deg)" }}
+                                    >
+                                        {project.category}
+                                    </span>
+                                    <span className="text-white/50 text-2xl font-light leading-none">+</span>
                                 </div>
-                            </div>
-
-                            {/* Right side: Vertical Text */}
-                            <div className="absolute right-6 top-8 bottom-8 flex flex-col justify-between items-end pointer-events-none z-10">
-                                <div className="text-white/40 text-[10px] tracking-[0.2em] uppercase origin-top-right rotate-90 translate-y-full whitespace-nowrap mt-4">
-                                    {project.category}
-                                </div>
-                                <div className="text-white/40 text-2xl font-light mb-[-10px]">
-                                    +
-                                </div>
-                            </div>
-
-                            {/* Subtle hover edge glow */}
-                            <div className="absolute inset-0 rounded-[2rem] border border-white/0 group-hover:border-white/10 transition-colors duration-500 pointer-events-none z-20" />
+                            </GlareCard>
                         </motion.div>
                     ))}
                 </div>
+
+                {/* See All button */}
+                {!hideSeeAll && (
+                    <div className="flex justify-center mt-12">
+                        <Link
+                            href="/work"
+                            className="text-xs font-semibold tracking-[0.2em] uppercase text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors border-b border-black/20 dark:border-white/20 hover:border-black dark:hover:border-white pb-0.5"
+                        >
+                            See All →
+                        </Link>
+                    </div>
+                )}
             </div>
         </section>
     );
 }
+

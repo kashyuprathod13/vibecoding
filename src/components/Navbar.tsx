@@ -16,6 +16,9 @@ export default function Navbar() {
         if (pathname === "/about") {
             setActive("ABOUT");
             setIsPastHero(true); // Always solid background on other pages
+        } else if (pathname === "/work") {
+            setActive("WORK");
+            setIsPastHero(true);
         } else {
             setActive("HOME");
         }
@@ -59,7 +62,12 @@ export default function Navbar() {
             return;
         }
 
-        // For WORK and CONTACT, if we are not on home page, go to home first
+        if (item === "WORK") {
+            router.push("/work");
+            return;
+        }
+
+        // For CONTACT, if we are not on home page, go to home first
         if (pathname !== "/") {
             router.push(`/#${item.toLowerCase()}`);
         } else {
