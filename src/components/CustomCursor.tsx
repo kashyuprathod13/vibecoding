@@ -74,7 +74,7 @@ export default function CustomCursor() {
 
             {/* Primary Dot (Exact location) */}
             <motion.div
-                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference"
+                className="fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[999999] mix-blend-difference"
                 style={{
                     x: mouseX,
                     y: mouseY,
@@ -90,7 +90,7 @@ export default function CustomCursor() {
 
             {/* Trailing Circle (Spring effect) */}
             <motion.div
-                className="fixed top-0 left-0 w-10 h-10 border border-white/50 bg-white/5 backdrop-blur-[2px] rounded-full pointer-events-none z-[9998] flex items-center justify-center mix-blend-difference"
+                className="fixed top-0 left-0 w-10 h-10 border border-white/50 bg-white/5 backdrop-blur-[2px] rounded-full pointer-events-none z-[999998] flex items-center justify-center mix-blend-difference"
                 style={{
                     x: cursorXSpring,
                     y: cursorYSpring,

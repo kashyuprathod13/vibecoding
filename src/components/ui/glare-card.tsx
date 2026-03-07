@@ -113,7 +113,7 @@ export const GlareCard = ({
                         {children}
                     </div>
                 </div>
-                {/* Glare layer — dark */}
+                {/* Glare layer | dark */}
                 <div className="w-full h-full grid [grid-area:1/1] [clip-path:inset(0_0_1px_0_round_var(--radius))] opacity-[var(--opacity)] transition-opacity duration-[var(--duration)] ease-[var(--easing)] will-change-background [background:radial-gradient(farthest-corner_circle_at_var(--m-x)_var(--m-y),_rgba(0,0,0,0.9)_10%,_rgba(0,0,0,0.7)_20%,_rgba(0,0,0,0)_90%)]" />
                 {/* Dark foil layer */}
                 <div

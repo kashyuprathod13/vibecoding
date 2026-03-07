@@ -5,9 +5,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollToTop from "@/components/ScrollToTop";
+import Contact from "@/components/Contact";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,9 +30,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <CustomCursor />
           <Navbar />
-          <ThemeToggle />
           <ScrollToTop />
           {children}
+          <Contact />
           <Analytics />
         </ThemeProvider>
       </body>

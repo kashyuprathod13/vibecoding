@@ -2,21 +2,30 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 
-const navItems = ["HOME", "ABOUT", "WORK", "CONTACT"];
+const navItems = ["HOME", "ABOUT", "WORK"];
 
 export default function Navbar() {
     const router = useRouter();
     const pathname = usePathname();
     const [active, setActive] = useState("HOME");
     const [isPastHero, setIsPastHero] = useState(false);
+    
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Set initial active state based on pathname
     useEffect(() => {
         if (pathname === "/about") {
             setActive("ABOUT");
             setIsPastHero(true); // Always solid background on other pages
-        } else if (pathname === "/work") {
+        } else if (pathname.startsWith("/work")) {
             setActive("WORK");
             setIsPastHero(true);
         } else {
@@ -66,17 +75,6 @@ export default function Navbar() {
             router.push("/work");
             return;
         }
-
-        // For CONTACT, if we are not on home page, go to home first
-        if (pathname !== "/") {
-            router.push(`/#${item.toLowerCase()}`);
-        } else {
-            const sectionId = item.toLowerCase();
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        }
     };
 
     return (
@@ -104,6 +102,26 @@ export default function Navbar() {
                         </button>
                     );
                 })}
+                
+                {/* Theme Toggle Button */}
+                <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className={`relative ml-2 p-1.5 md:p-2 rounded-full transition-colors duration-300 ${isPastHero
+                        ? "text-black/70 hover:text-black hover:bg-black/5 dark:text-white/80 dark:hover:text-white dark:hover:bg-white/10"
+                        : "text-white/80 hover:text-white hover:bg-white/10"
+                    }`}
+                    aria-label="Toggle Theme"
+                >
+                    {mounted ? (
+                        theme === "dark" ? (
+                            <Sun className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
+                        ) : (
+                            <Moon className="w-4 h-4 md:w-5 md:h-5" />
+                        )
+                    ) : (
+                        <div className="w-4 h-4 md:w-5 md:h-5" /> // Placeholder
+                    )}
+                </button>
             </nav>
         </div>
     );

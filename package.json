@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "taskkill /F /IM node.exe 2>nul || exit 0",
+    "clean-dev": "npm run clean && next dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
