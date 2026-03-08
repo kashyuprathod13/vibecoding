@@ -24,8 +24,12 @@ export default function Projects({ limit, hideSeeAll }: ProjectsProps = {}) {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="mb-16 flex flex-col items-center text-center"
                 >
-                    <h2 className="text-sm md:text-base font-semibold tracking-[0.3em] uppercase mb-4 text-black/50 dark:text-white/50">
+                    <h3 className="text-sm md:text-base font-semibold tracking-[0.3em] uppercase mb-4 text-black/50 dark:text-white/50">
                         Selected Work
+                    </h3>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] text-black/90 dark:text-white/90">
+                        Designed for humans. <br />
+                        <span className="text-black/30 dark:text-white/25">Scaled for enterprise.</span>
                     </h2>
                 </motion.div>
 

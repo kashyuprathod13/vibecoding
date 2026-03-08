@@ -3,6 +3,7 @@ import Overlay from "@/components/Overlay";
 import HomeAbout from "@/components/HomeAbout";
 import Projects from "@/components/Projects";
 import Partners from "@/components/Partners";
+import HomeProcess from "@/components/HomeProcess";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <HomeAbout />
       <Partners />
       <Projects limit={3} />
+      <HomeProcess />
     </main>
   );
 }

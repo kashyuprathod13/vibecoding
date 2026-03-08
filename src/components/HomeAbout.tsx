@@ -18,11 +18,11 @@ export default function HomeAbout() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.9, ease: "easeOut" }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-tight text-black/90 dark:text-white/90"
+                        className="text-4xl md:text-6xl lg:text-[5.5rem] font-light leading-[1.1] tracking-tight text-black/90 dark:text-white/90"
                     >
-                        I design clarity
+                        I don't just design interfaces.
                         <br />
-                        <span className="text-black/30 dark:text-white/25">inside complex systems.</span>
+                        <span className="text-black/30 dark:text-white/25">I design the systems of thought.</span>
                     </motion.h2>
                 </div>
 
@@ -33,13 +33,13 @@ export default function HomeAbout() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="max-w-2xl mx-auto space-y-6 text-base md:text-lg font-light leading-relaxed text-black/50 dark:text-white/40 text-center"
+                    className="max-w-3xl mx-auto space-y-6 text-base md:text-lg font-light leading-relaxed text-black/50 dark:text-white/40 text-center"
                 >
                     <p>
-                        With 14 years shaping digital products and enterprise platforms, I help organizations turn insight into execution. My work connects business ambition with human-centered design aligning strategy, experience, and delivery.
+                        With 14 years shaping digital products and enterprise platforms across healthcare, retail, technology, and lifestyle, I've learned that the most valuable design work happens before the first pixel. It lives in the strategic clarity that makes execution inevitable.
                     </p>
                     <p>
-                        I lead multidisciplinary teams, build scalable design systems, and influence product direction at every level from roadmap conversations to shipped experiences.
+                        I've led multidisciplinary teams at organizations ranging from tech giants to emerging ventures, building design cultures that compound over time. My work doesn't just ship, it scales.
                     </p>
                     <div className="pt-4">
                         <Link

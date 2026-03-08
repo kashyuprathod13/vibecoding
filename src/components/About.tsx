@@ -67,13 +67,13 @@ export default function About({ hidePhoto }: AboutProps) {
                         >
                             <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-black/60 dark:text-white/50">
                                 <p className="font-medium text-black/90 dark:text-white/90 mb-6">
-                                    I design clarity inside complex systems.
+                                    I don't just design interfaces. I design the systems of thought that make organizations move better.
                                 </p>
                                 <p>
-                                    With 14 years shaping digital products and enterprise platforms, I help organizations turn insight into execution. My work connects business ambition with human-centered design aligning strategy, experience, and delivery.
+                                    With 14 years shaping digital products and enterprise platforms across healthcare, retail, technology, and lifestyle, I've learned that the most valuable design work happens before the first pixel. It lives in the conversations, the frameworks, and the strategic clarity that makes execution inevitable.
                                 </p>
                                 <p>
-                                    I lead multidisciplinary teams, build scalable design systems, and influence product direction at every level from roadmap conversations to shipped experiences.
+                                    I've led multidisciplinary teams at organizations ranging from global tech giants to emerging ventures, building the kind of design culture that compounds over time. My work doesn't just ship, it scales.
                                 </p>
                                 <p className="mt-8">
                                     <span className="font-medium text-black/90 dark:text-white/90 block mb-2">Design, to me, is leverage.</span>

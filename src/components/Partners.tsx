@@ -173,7 +173,7 @@ export default function Partners() {
                                             className="h-8 w-auto object-contain"
                                         />
                                     </div>
-                                    <span className="font-['DM_Mono'] text-[13px] md:text-sm tracking-[0.12em] uppercase transition-colors duration-200 whitespace-nowrap text-black dark:text-white opacity-100">
+                                    <span className="font-light text-sm md:text-base transition-colors duration-200 whitespace-nowrap text-black/60 dark:text-white/60">
                                         {name}
                                     </span>
                                 </motion.div>
