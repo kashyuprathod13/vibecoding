@@ -29,6 +29,23 @@ export default function ScrollyCanvas() {
         for (let i = 0; i < FRAME_COUNT; i++) {
             const img = new Image();
             img.src = getFrameSrc(i);
+            
+            // Explicitly draw the first frame the millisecond it loads
+            if (i === 0) {
+                img.onload = () => {
+                    if (canvasRef.current) {
+                        const ctx = canvasRef.current.getContext("2d");
+                        if (ctx) {
+                            if (canvasRef.current.width !== window.innerWidth) {
+                                canvasRef.current.width = window.innerWidth;
+                                canvasRef.current.height = window.innerHeight;
+                            }
+                            renderToCanvas(ctx, img, canvasRef.current.width, canvasRef.current.height);
+                        }
+                    }
+                };
+            }
+            
             loadedImages.push(img);
         }
         setImages(loadedImages);
@@ -56,7 +73,7 @@ export default function ScrollyCanvas() {
         });
     });
 
-    // Draw the correct frame as soon as images are ready or when navigating
+    // Draw the correct frame when images array state updates or scrolling happens
     useEffect(() => {
         if (images.length > 0 && canvasRef.current) {
             const ctx = canvasRef.current.getContext("2d");
