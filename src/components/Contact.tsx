@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import { RetroGrid } from "@/components/ui/retro-grid";
 import { Mail, Linkedin } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function Contact() {
+    const pathname = usePathname();
+    const isWorkPage = pathname === '/work';
+
     return (
         <section id="contact" className="bg-background py-32 px-6 md:px-12 relative z-10 text-foreground min-h-[80vh] flex items-center justify-center border-t border-black/5 dark:border-white/5 transition-colors duration-300 overflow-hidden">
             <RetroGrid />
@@ -17,10 +21,12 @@ export default function Contact() {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-light leading-[1.1] tracking-tight mb-8">
-                        <span className="text-black/50 dark:text-white/50">Let's build </span>
-                        <span className="text-black/95 dark:text-white/95">something extraordinary</span>
-                    </h2>
+                    {!isWorkPage && (
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-light leading-[1.1] tracking-tight mb-8">
+                            <span className="text-black/50 dark:text-white/50">Let's build </span>
+                            <span className="text-black/95 dark:text-white/95">something extraordinary</span>
+                        </h2>
+                    )}
                     <p className="text-black/60 dark:text-white/60 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light">
                         Whether you're scaling an enterprise platform, redefining a product experience, or just need a partner who can hold the vision while the work gets done. I'd love to hear what you're building.
                     </p>

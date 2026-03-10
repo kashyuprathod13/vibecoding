@@ -72,7 +72,7 @@ export default function TechnicalSkills() {
                                         {group.skills.map((skill, skillIndex) => (
                                             <li
                                                 key={skillIndex}
-                                                className="text-sm md:text-base font-light text-black/60 dark:text-white/60"
+                                                className="text-sm font-light leading-relaxed text-black/60 dark:text-white/60"
                                             >
                                                 {skill}
                                             </li>

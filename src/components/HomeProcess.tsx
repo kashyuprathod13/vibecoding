@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Headphones, Target, RefreshCw, Boxes } from "lucide-react";
 
 export default function HomeProcess() {
     return (
@@ -155,44 +156,56 @@ export default function HomeProcess() {
                         { 
                             id: "01", 
                             title: "Deep Listening", 
+                            icon: Headphones,
                             desc: "Before a single frame is drawn, I spend time understanding the problem landscape the business pressures, user realities, and organizational constraints." 
                         },
                         { 
                             id: "02", 
                             title: "Strategic Framing", 
+                            icon: Target,
                             desc: "Turning discovery into clarity. I define success metrics, align stakeholders around shared principles, and establish the creative brief." 
                         },
                         { 
                             id: "03", 
                             title: "Iterative Building", 
+                            icon: RefreshCw,
                             desc: "Moving fast with purpose. From concepts to high-fidelity prototypes, I run tight design sprints that bring teams along the journey." 
                         },
                         { 
                             id: "04", 
                             title: "Scalable Systems", 
+                            icon: Boxes,
                             desc: "Shipping is only the beginning. I ensure the work is documented, systems are scalable, and teams have everything they need." 
                         }
-                    ].map((step, i) => (
+                    ].map((step, i) => {
+                        const Icon = step.icon;
+                        return (
                         <motion.div
                             key={step.id}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                            whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                            className="p-6 md:p-8 rounded-2xl border border-black/5 dark:border-white/[0.08] bg-black/[0.01] dark:bg-white/[0.01] backdrop-blur-sm flex flex-col items-start text-left group hover:bg-black/[0.03] dark:hover:bg-white/[0.03] hover:border-black/10 dark:hover:border-white/10 transition-all duration-300"
+                            className="flex flex-col items-start justify-center p-6 md:p-8 lg:p-10 rounded-3xl border border-black/5 dark:border-white/5 bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-md shadow-2xl overflow-hidden relative group transition-all duration-300 hover:-translate-y-1 hover:bg-black/[0.04] dark:hover:bg-white/[0.04] hover:border-black/10 dark:hover:border-white/10 w-full"
                         >
-                            <span className="text-[10px] md:text-xs font-medium text-black/30 dark:text-white/20 mb-4 block uppercase tracking-widest leading-none">
-                                {step.id}
-                            </span>
-                            <h4 className="text-xl md:text-2xl font-medium tracking-tight text-black/90 dark:text-white/90 mb-4 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
-                                {step.title}
-                            </h4>
-                            <p className="text-sm md:text-base font-light leading-relaxed text-black/60 dark:text-white/50 group-hover:text-black/80 dark:group-hover:text-white/70 transition-colors duration-300">
-                                {step.desc}
-                            </p>
+                            <div className="absolute inset-0 bg-gradient-to-br from-black/5 dark:from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
+                            
+                            <div className="flex flex-col flex-grow relative z-10 w-full">
+                                <span className="text-foreground/30 text-[10px] md:text-xs font-mono mb-8 uppercase tracking-widest text-left block">{step.id}</span>
+                                
+                                <div className="mb-8 text-foreground/80 group-hover:text-foreground transition-colors text-left">
+                                    <Icon className="w-6 h-6" strokeWidth={1.5} />
+                                </div>
+                                
+                                <h4 className="text-xl md:text-2xl font-medium tracking-tight mb-4 text-left text-black/90 dark:text-white/90 group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
+                                    {step.title}
+                                </h4>
+                                <p className="text-sm font-light leading-relaxed text-black/60 dark:text-white/60 group-hover:text-black/80 dark:group-hover:text-white/70 transition-colors duration-300 text-left">
+                                    {step.desc}
+                                </p>
+                            </div>
                         </motion.div>
-                    ))}
+                    )})}
                 </div>
 
             </div>

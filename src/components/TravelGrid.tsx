@@ -22,6 +22,7 @@ const TRAVEL_IMAGES = [
 
 export default function TravelGrid() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const [visibleCount, setVisibleCount] = useState(12);
 
     // Navigation functions
     const nextImage = () => {
@@ -34,6 +35,10 @@ export default function TravelGrid() {
         if (selectedIndex !== null) {
             setSelectedIndex((selectedIndex - 1 + TRAVEL_IMAGES.length) % TRAVEL_IMAGES.length);
         }
+    };
+
+    const loadMore = () => {
+        setVisibleCount(prev => Math.min(prev + 12, TRAVEL_IMAGES.length));
     };
 
     // Keyboard controls
@@ -78,13 +83,12 @@ export default function TravelGrid() {
 
                 {/* Masonry-style Grid */}
                 <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-                    {TRAVEL_IMAGES.map((src, idx) => (
+                    {TRAVEL_IMAGES.slice(0, visibleCount).map((src, idx) => (
                         <motion.div
                             key={src}
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: (idx % 10) * 0.05 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: (idx % 12) * 0.05 }}
                             className="relative group cursor-zoom-in break-inside-avoid rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 bg-black/5 dark:bg-white/5"
                             onClick={() => setSelectedIndex(idx)}
                         >
@@ -95,7 +99,7 @@ export default function TravelGrid() {
                                 height={1200}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                                loading={idx < 4 ? undefined : "lazy"}
+                                loading={idx < 4 ? "eager" : "lazy"}
                                 priority={idx < 4}
                             />
                             {/* Hover Overlay */}
@@ -103,6 +107,18 @@ export default function TravelGrid() {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Load More Button */}
+                {visibleCount < TRAVEL_IMAGES.length && (
+                    <div className="mt-16 flex justify-center w-full">
+                        <button
+                            onClick={loadMore}
+                            className="px-8 py-3 rounded-full text-base md:text-lg font-light tracking-wide backdrop-blur-xl shadow-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-300 text-black/80 dark:text-white/80"
+                        >
+                            Load More Photos
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/* Lightroom Modal */}

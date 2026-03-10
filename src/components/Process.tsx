@@ -57,7 +57,7 @@ export default function Process() {
                                         {method.title}
                                     </h3>
 
-                                    <p className="text-sm md:text-base font-light leading-relaxed text-black/60 dark:text-white/60">
+                                    <p className="text-sm font-light leading-relaxed text-black/60 dark:text-white/60">
                                         {method.description}
                                     </p>
                                 </motion.div>

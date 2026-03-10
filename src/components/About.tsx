@@ -23,14 +23,14 @@ export default function About({ hidePhoto }: AboutProps) {
                     />
 
                     {/* Explore Link Overlay */}
-                    <div className="absolute top-1/2 right-6 md:right-12 -translate-y-1/2 flex justify-end z-20">
+                    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex justify-center z-20">
                         <a
                             href="#about"
                             onClick={(e) => {
                                 e.preventDefault();
                                 document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                             }}
-                            className="text-white text-lg md:text-xl font-light tracking-wide drop-shadow-lg hover:opacity-70 transition-opacity flex items-center gap-2"
+                            className="text-white text-base md:text-lg font-light tracking-wide flex items-center gap-2 px-6 py-2 rounded-full backdrop-blur-xl shadow-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-300"
                         >
                             Explore <span className="text-xl">&darr;</span>
                         </a>
@@ -65,7 +65,7 @@ export default function About({ hidePhoto }: AboutProps) {
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                             className="w-full lg:w-2/3"
                         >
-                            <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-black/60 dark:text-white/50">
+                            <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-black/60 dark:text-white/60">
                                 <p className="font-medium text-black/90 dark:text-white/90 mb-6">
                                     I don't just design interfaces. I design the systems of thought that make organizations move better.
                                 </p>
