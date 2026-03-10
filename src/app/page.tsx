@@ -19,7 +19,6 @@ export default function Home() {
       <Partners />
       <Projects limit={3} />
       <HomeProcess />
-      <ScrollTicker />
     </main>
   );
 }

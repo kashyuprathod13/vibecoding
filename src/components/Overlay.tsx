@@ -63,7 +63,7 @@ export default function Overlay() {
                         <FinancialHero 
                             title="That includes me. So, I find inspiration in people, places and everything in between."
                             description=""
-                            buttonText="life & travel"
+                            buttonText="Life & Travel"
                             buttonLink="/travel"
                             imageUrl1="/travel/cappadocia-cover.jpg"
                             imageUrl2="/travel/IMG_4123.jpg"

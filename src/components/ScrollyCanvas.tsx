@@ -53,15 +53,28 @@ export default function ScrollyCanvas() {
         }
     });
 
-    // Draw the very first frame as soon as images are ready
+    // Draw the correct frame as soon as images are ready or when navigating
     useEffect(() => {
-        if (images.length > 0 && images[0].complete && canvasRef.current) {
+        if (images.length > 0 && canvasRef.current) {
             const ctx = canvasRef.current.getContext("2d");
             if (ctx) {
-                renderToCanvas(ctx, images[0], canvasRef.current.width, canvasRef.current.height);
+                // Ensure dimensions are set correctly before first render
+                if (canvasRef.current.width !== window.innerWidth) {
+                    canvasRef.current.width = window.innerWidth;
+                    canvasRef.current.height = window.innerHeight;
+                }
+                
+                const frameIndex = Math.min(
+                    FRAME_COUNT - 1,
+                    Math.floor(scrollYProgress.get() * FRAME_COUNT)
+                );
+                const img = images[frameIndex];
+                if (img && img.complete) {
+                    renderToCanvas(ctx, img, canvasRef.current.width, canvasRef.current.height);
+                }
             }
         }
-    }, [images]);
+    }, [images, scrollYProgress]);
 
     // Ensure window resizes recalculate canvas dimensions
     useEffect(() => {

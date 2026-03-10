@@ -46,7 +46,7 @@ export default function About({ hidePhoto }: AboutProps) {
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24 mb-8 lg:mb-12">
 
                         {/* Left Column (Sticky Title & Subtitle) */}
-                        <div className="lg:w-1/3 shrink-0 flex flex-col gap-12 lg:gap-20 sticky top-32">
+                        <div className="lg:w-1/3 shrink-0 flex flex-col gap-12 lg:gap-20 lg:sticky lg:top-32">
                             {/* Optional About Me title only on standalone page */}
                             {!hidePhoto && (
                                 <div className="text-black/50 dark:text-white/50">

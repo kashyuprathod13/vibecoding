@@ -35,7 +35,7 @@ export default function TechnicalSkills() {
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-24">
 
                     {/* Left Column (Section Title) */}
-                    <div className="lg:w-1/3 shrink-0 flex flex-col gap-6 sticky top-32">
+                    <div className="lg:w-1/3 shrink-0 flex flex-col gap-6 lg:sticky lg:top-32">
                         <motion.h2
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}

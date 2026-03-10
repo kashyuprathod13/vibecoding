@@ -51,7 +51,7 @@ export default function ScrollToTop() {
 
                     {/* Vertical "JUMP UP" text */}
                     <span
-                        className="text-[10px] font-semibold tracking-[0.25em] text-white/80 uppercase group-hover:tracking-[0.35em] transition-all duration-300"
+                        className="text-[10px] font-semibold tracking-[0.25em] text-black/60 dark:text-white/60 uppercase group-hover:text-black dark:group-hover:text-white group-hover:tracking-[0.35em] transition-all duration-300"
                         style={{ writingMode: "vertical-rl", textOrientation: "mixed", transform: "rotate(180deg)" }}
                     >
                         Jump Up
